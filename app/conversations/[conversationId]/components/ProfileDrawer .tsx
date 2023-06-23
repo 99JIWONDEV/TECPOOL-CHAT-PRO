@@ -40,7 +40,7 @@ const ProfileDrawer: React.FC<ProfileDrawerProps> = ({
 
   const statusText = useMemo(() => {
     if (data.isGroup) {
-      return `${data.users.length} members`;
+      return `${data.users.length} 명`;
     }
 
     return isActive ? 'Active' : 'Offline'
@@ -109,7 +109,7 @@ const ProfileDrawer: React.FC<ProfileDrawerProps> = ({
                                 <IoTrash size={20} />
                               </div>
                               <div className="text-sm font-light text-neutral-600">
-                                Delete
+                                채팅방 삭제
                               </div>
                             </div>
                           </div>
@@ -126,7 +126,7 @@ const ProfileDrawer: React.FC<ProfileDrawerProps> = ({
                                   sm:flex-shrink-0
                                 "
                               >
-                                Emails
+                                참가자 이메일
                               </dt>
                               <dd 
                                 className="
@@ -151,7 +151,7 @@ const ProfileDrawer: React.FC<ProfileDrawerProps> = ({
                                   sm:flex-shrink-0
                                 "
                                   >
-                                    Email
+                                    참가자 이메일
                                   </dt>
                                   <dd
                                     className="

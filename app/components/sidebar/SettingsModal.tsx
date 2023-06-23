@@ -71,15 +71,15 @@ const SettingsModal: React.FC<SettingsModalProps> = ({
                 text-gray-900
               "
             >
-              Profile
+              프로필
             </h2>
             <p className="mt-1 text-sm leading-6 text-gray-600">
-              Edit your public information.
+              프로필을 수정해보세요
             </p>
             <div className="mt-10 flex flex-col gap-y-8">
               <Input
                 disabled={isLoading}
-                label="Name"
+                label="이름 (실명)"
                 id="name"
                 errors={errors}
                 required
@@ -95,7 +95,7 @@ const SettingsModal: React.FC<SettingsModalProps> = ({
                     text-gray-900
                   "
                 >
-                  Photo
+                  프로필 사진
                 </label>
                 <div className="mt-2 flex items-center gap-x-3">
                   <Image
@@ -113,7 +113,7 @@ const SettingsModal: React.FC<SettingsModalProps> = ({
                     uploadPreset="dl1gc67k"
                   >
                     <Button disabled={isLoading} secondary type="button">
-                      Change
+                      변경을 원하시면 눌러주세요
                     </Button>
                   </CldUploadButton>
                 </div>
@@ -131,10 +131,10 @@ const SettingsModal: React.FC<SettingsModalProps> = ({
           "
           >
             <Button disabled={isLoading} secondary onClick={onClose}>
-              Cancel
+              취소
             </Button>
             <Button disabled={isLoading} type="submit">
-              Save
+              저장
             </Button>
           </div>
         </div>

@@ -9,9 +9,8 @@ import AuthSocialButton from "./AuthSocialButton";
 import { BsGithub, BsGoogle } from "react-icons/bs";
 import axios from "axios";
 import { toast } from "react-hot-toast";
-import { signIn, useSession } from "next-auth/react"
+import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
-
 
 type Variant = "LOGIN" | "REGISTER";
 
@@ -22,8 +21,8 @@ const AuthForm = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    if (session?.status === 'authenticated') {
-      router.push('/users')
+    if (session?.status === "authenticated") {
+      router.push("/users");
     }
   }, [session?.status, router]);
 
@@ -52,41 +51,41 @@ const AuthForm = () => {
     if (variant === "REGISTER") {
       axios
         .post("/api/register", data)
-        .then (()=> signIn('credentials',data))
+        .then(() => signIn("credentials", data))
         .catch(() => toast.error("Something went wrong!"))
         .finally(() => setIsLoading(false));
     }
     if (variant === "LOGIN") {
-      signIn('credentials', {
+      signIn("credentials", {
         ...data,
-        redirect: false
+        redirect: false,
       })
-      .then((callback) => {
-        if (callback?.error) {
-          toast.error('Invalid credentials!');
-        }
-        if (callback?.ok && !callback?.error) {
-          toast.success("Logged in!")
-        }
-      })
-      .finally(() => setIsLoading(false))
+        .then((callback) => {
+          if (callback?.error) {
+            toast.error("아이디 혹은 비밀번호가 잘못되었습니다.");
+          }
+          if (callback?.ok && !callback?.error) {
+            toast.success("로그인 되었습니다.");
+          }
+        })
+        .finally(() => setIsLoading(false));
     }
   };
 
   const socialAction = (action: string) => {
     setIsLoading(true);
-    
-    signIn(action, { redirect: false }) 
-    .then((callback) => {
-      if (callback?.error) {
-        toast.error('Invalid credentials!');
-      }
-      if (callback?.ok && callback?.error) {
-        toast.success('Logged in!')
-        router.push('/users')
-      }
-    })
-    .finally(() => setIsLoading(false));
+
+    signIn(action, { redirect: false })
+      .then((callback) => {
+        if (callback?.error) {
+          toast.error("아이디 혹은 비밀번호가 잘못되었습니다.");
+        }
+        if (callback?.ok && callback?.error) {
+          toast.success("로그인 되었습니다.");
+          router.push("/users");
+        }
+      })
+      .finally(() => setIsLoading(false));
   };
 
   return (
@@ -105,7 +104,7 @@ const AuthForm = () => {
           {variant === "REGISTER" && (
             <Input
               id="name"
-              label="Name"
+              label="이름 (실명)"
               register={register}
               errors={errors}
               disabled={isLoading}
@@ -113,7 +112,7 @@ const AuthForm = () => {
           )}
           <Input
             id="email"
-            label="Email address"
+            label="AJOU 이메일"
             type="email"
             register={register}
             errors={errors}
@@ -121,7 +120,7 @@ const AuthForm = () => {
           />
           <Input
             id="password"
-            label="Password"
+            label="비밀번호"
             type="password"
             register={register}
             errors={errors}
@@ -130,7 +129,7 @@ const AuthForm = () => {
           />
           <div>
             <Button disabled={isLoading} fullWidth type="submit">
-              {variant === "LOGIN" ? "Sign in" : "Register"}
+              {variant === "LOGIN" ? "로그인" : "회원가입"}
             </Button>
           </div>
         </form>
@@ -147,13 +146,11 @@ const AuthForm = () => {
               <div className="w-full border-t border-gray-300" />
             </div>
             <div className="relative flex justify-center text-sm">
-              <span className="bg-white px-2 text-gray-500">
-                Or continue with
-              </span>
+              <span className="bg-white px-2 text-gray-500">Or</span>
             </div>
           </div>
 
-          <div className="mt-6 flex gap-2">
+          {/* <div className="mt-6 flex gap-2">
             <AuthSocialButton
               icon={BsGithub}
               onClick={() => socialAction("github")}
@@ -162,7 +159,7 @@ const AuthForm = () => {
               icon={BsGoogle}
               onClick={() => socialAction("google")}
             />
-          </div>
+          </div> */}
         </div>
         <div
           className="
@@ -176,12 +173,10 @@ const AuthForm = () => {
           "
         >
           <div>
-            {variant === "LOGIN"
-              ? "New to Messenger?"
-              : "Already have an account?"}
+            {variant === "LOGIN" ? "계정이 없으신가요?" : "계정이 있으신가요?"}
           </div>
           <div onClick={toggleVariant} className="underline cursor-pointer">
-            {variant === "LOGIN" ? "Create an account" : "Login"}
+            {variant === "LOGIN" ? "회원 가입" : "로그인"}
           </div>
         </div>
       </div>

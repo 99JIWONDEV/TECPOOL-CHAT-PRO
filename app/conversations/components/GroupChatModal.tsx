@@ -15,7 +15,7 @@ interface GroupChatModalProps {
   isOpen?: boolean;
   onClose: () => void;
   users: User[];
-  //내가 [] 추가함
+  
 }
 
 const GroupChatModal: React.FC<GroupChatModalProps> = ({
@@ -68,15 +68,15 @@ const GroupChatModal: React.FC<GroupChatModalProps> = ({
                 leading-7
                 text-gray-900"
             >
-              Create a group chat
+              그룹 채팅방 만들기
             </h2>
             <p className="mt-1 text-sm leading-6 text-gray-600">
-              Create a chat with more than 2 people.
+              3명 이상의 TECPOOL유저와 채팅을 시작해보세요.
             </p>
             <div className="mt-10 flex flex-col gap-y-8">
               <Input
                 register={register}
-                label="Name"
+                label="채팅방 이름"
                 id="name"
                 disabled={isLoading}
                 required
@@ -84,7 +84,7 @@ const GroupChatModal: React.FC<GroupChatModalProps> = ({
               />
               <Select
                 disabled={isLoading}
-                label="Members"
+                label="유저 선택"
                 options={users.map((user) => ({
                   value: user.id,
                   label: user.name,
@@ -106,10 +106,10 @@ const GroupChatModal: React.FC<GroupChatModalProps> = ({
             type="button"
             secondary
           >
-            Cancel
+            취소
           </Button>
           <Button disabled={isLoading} type="submit">
-            Create
+            만들기
           </Button>
         </div>
       </form>

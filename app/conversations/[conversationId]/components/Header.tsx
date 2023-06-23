@@ -58,8 +58,8 @@ const Header: React.FC<HeaderProps> = ({ conversation }) => {
           className="
             lg:hidden 
             block 
-            text-sky-500 
-            hover:text-sky-600 
+            text-neutral-800
+            hover:text-neutral-950
             transition 
             cursor-pointer
           "
@@ -82,9 +82,9 @@ const Header: React.FC<HeaderProps> = ({ conversation }) => {
         size={32}
         onClick={() => setDrawerOpen(true)}
         className="
-          text-sky-500
+        text-neutral-800
           cursor-pointer
-          hover:text-sky-600
+          hover:text-neutral-950
           transition
         "
       />

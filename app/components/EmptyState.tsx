@@ -16,7 +16,9 @@ const EmptyState = () => {
     >
       <div className="text-center items-center flex flex-col">
         <h3 className="mt-2 text-2xl font-semibold text-gray-900">
-          Select a chat or start a new conversation
+          USER를 클릭해서 대화를 시작해보세요.
+          <br />
+          (만나는 장소, 시간, 계좌등을 공유하세요!)
         </h3>
       </div>
     </div>

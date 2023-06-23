@@ -16,14 +16,14 @@ export default function Home() {
  "
     >
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
-        <Image
-          height="48"
-          width="48"
+        {/* <Image
+          height="88"
+          width="50"
           className="mx-auto w-auto"
-          src="/images/logo.png"
+          src="/images/taxi.png"
           alt="Logo"
-        />
-            <h2 
+        /> */}
+        <h2
           className="
             mt-6 
             text-center 
@@ -32,11 +32,11 @@ export default function Home() {
             tracking-tight 
             text-gray-900
           "
-          >
-            Sign in to your account
+        >
+          TECPOOL CHAT
         </h2>
       </div>
-      <AuthForm/>
+      <AuthForm />
     </div>
   );
 }

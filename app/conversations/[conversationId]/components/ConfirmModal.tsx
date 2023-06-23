@@ -65,22 +65,21 @@ const ConfirmModal: React.FC<ConfirmModalProps> = ({ isOpen, onClose }) => {
             as="h3"
             className="text-base font-semibold leading-6 text-gray-900"
           >
-            Delete conversation
+            삭제 경고
           </Dialog.Title>
           <div className="mt-2">
             <p className="text-sm text-gray-500">
-              Are you sure you want to delete this conversation? This action
-              cannot be undone.
+              정말 채팅방을 삭제하시겠습니까? 삭제된 채팅방은 복원하실 수 없습니다. 
             </p>
           </div>
         </div>
       </div>
       <div className="mt-5 sm:mt-4 sm:flex sm:flex-row-reverse">
         <Button disabled={isLoading} danger onClick={onDelete}>
-          Delete
+          삭제
         </Button>
         <Button disabled={isLoading} secondary onClick={onClose}>
-          Cancel
+          취소
         </Button>
       </div>
     </Modal>

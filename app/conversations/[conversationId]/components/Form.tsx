@@ -52,7 +52,7 @@ const Form = () => {
       options={{ maxFiles: 1 }} 
       onUpload={handleUpload} 
       uploadPreset="dl1gc67k">
-      <HiPhoto size={30} className="text-sky-500" />
+      <HiPhoto size={30} className="text-neutral-950" />
       </CldUploadButton>
     
       <form
@@ -65,16 +65,16 @@ const Form = () => {
           register={register} 
           errors={errors} 
           required 
-          placeholder="Write a message"
+          placeholder="메세지를 작성하세요"
         />
         <button 
           type="submit" 
           className="
             rounded-full 
             p-2 
-            bg-sky-500 
+            bg-neutral-900
             cursor-pointer 
-            hover:bg-sky-600 
+            hover:bg-neutral-950
             transition
           "
         >
